@@ -1,0 +1,9 @@
+<odoo>
+    <record id="seq_batch_delivery" model="ir.sequence">
+        <field name="name">Batch Delivery</field>
+        <field name="code">batch.delivery</field> 
+        <field name="prefix">B</field>
+        <field name="padding">5</field>
+        <field name="number_next">1</field>
+    </record>
+</odoo>

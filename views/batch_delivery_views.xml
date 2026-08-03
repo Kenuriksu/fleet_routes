@@ -5,12 +5,11 @@
     <field name="name">batch.delivery.list</field>
     <field name="model">batch.delivery</field>
     <field name="arch" type="xml">
-        <list default_group_by="route_id">
+        <list default_group_by="route_id" default_order="state asc, delivery_date desc">
             <field name="name"/>
-            <field name="city"/>
             <field name="delivery_date"/>
             <field name="route_id"/>
-            <field name="model_id"/>
+            <field name="truck_id"/>
             <field name="order_ids"/>
             <field name="state"/>
         </list>
@@ -22,18 +21,32 @@
     <field name="name">batch.delivery.form</field>
     <field name="model">batch.delivery</field>
     <field name="arch" type="xml">
-        <form string="Route">
+        <form string="Batch Delivery">
+
+            <header>
+                <button name="action_fetch_orders"
+                        type="object"
+                        string="Fetch Orders"
+                        class="btn-primary"/>
+                <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+            </header>
+
             <sheet>
                 <group>
                     <field name="name"/>
                     <field name="route_id"/>
                     <field name="delivery_date"/>
-                    <field name="city"/>
                     <field name="order_ids"/>
-                    <field name="model_id"/>
-                    <field name="state"/>
                 </group>
+
+                <group string="Truck Info">
+                    <field name="truck_id"/>
+                    <field name="driver_id" readonly="1"/>
+                    <field name="helper_ids" widget="many2many_tags"/>
+                </group>
+
             </sheet>
+
         </form>
     </field>
 </record>

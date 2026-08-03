@@ -7,6 +7,7 @@
     "license": "LGPL-3",
     "data": [
         "security/ir.model.access.csv",
+        "data/sequence.xml",
         'views/routes_views.xml',
         "views/batch_delivery_views.xml",
         'views/menu.xml',

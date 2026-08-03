@@ -10,7 +10,6 @@
     <field name="arch" type="xml">
         <list>
             <field name="name"/>
-            <field name="destination"/>
             <field name="active"/>
         </list>
     </field>
@@ -25,7 +24,6 @@
             <sheet>
                 <group>
                     <field name="name"/>
-                    <field name="destination"/>
                     <field name="active"/>
                 </group>
             </sheet>
