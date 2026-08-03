@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+```
+<!-- Add under Fleet Configuration -->
+<menuitem 
+    id="menu_delivery_routes"
+    name="Routes"
+    parent="fleet.fleet_configuration" 
+    action="action_delivery_routes"
+    sequence="2"/>
+```
+
+</odoo>

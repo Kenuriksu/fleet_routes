@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+```
+<!-- TREE VIEW -->
+<record id="view_delivery_routes_tree" model="ir.ui.view">
+    <field name="name">delivery.routes.tree</field>
+    <field name="model">delivery.routes</field>
+    <field name="arch" type="xml">
+        <list>
+            <field name="name"/>
+            <field name="destination"/>
+            <field name="active"/>
+        </list>
+    </field>
+</record>
+
+<!-- FORM VIEW -->
+<record id="view_delivery_routes_form" model="ir.ui.view">
+    <field name="name">delivery.routes.form</field>
+    <field name="model">delivery.routes</field>
+    <field name="arch" type="xml">
+        <form string="Route">
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="destination"/>
+                    <field name="active"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<!-- ACTION -->
+<record id="action_delivery_routes" model="ir.actions.act_window">
+    <field name="name">Routes</field>
+    <field name="res_model">delivery.routes</field>
+    <field name="view_mode">list,form</field>
+</record>
+```
+
+</odoo>

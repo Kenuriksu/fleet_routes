@@ -1,0 +1,27 @@
+# Python
+
+**pycache**/
+*.pyc
+
+# Odoo
+
+*.log
+*.pid
+
+# VSCode / IDE
+
+.vscode/
+.idea/
+
+# OS
+
+.DS_Store
+Thumbs.db
+
+# Odoo filestore (if accidentally inside)
+
+filestore/
+
+# Virtual env (if any)
+
+venv/
