@@ -3,7 +3,12 @@
 <odoo>
 
 ```
-<!-- Add under Fleet Configuration -->
+<menuitem 
+    id="menu_batch_deliveries"
+    name="Batch Deliveries"
+    parent="fleet.menu_root" 
+    action="action_batch_deliveries"
+    sequence="2"/>
 <menuitem 
     id="menu_delivery_routes"
     name="Routes"
