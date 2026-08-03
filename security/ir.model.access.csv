@@ -1,3 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_delivery_routes_user,delivery.routes user,model_delivery_routes,base.group_user,1,1,1,1
-access_batch_delivery_user,batch.delivery user,model_batch_delivery,base.group_user,1,1,1,1

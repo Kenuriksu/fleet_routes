@@ -8,13 +8,11 @@
     "data": [
         "security/ir.model.access.csv",
         'views/routes_views.xml',
-        'views/batch_delivery_views.xml',
         'views/menu.xml',
     ],
     "depends": [
         "base",
         "fleet",
-        "sale_management"
     ],
     "installable": True,
     "application": False,
