@@ -7,3 +7,8 @@ class FleetTruck(models.Model):
         "res.partner",
         string="Helpers"
     )
+
+    max_weight_kg = fields.Float(
+        string="Max Load (kg)",
+        help="Maximum carrying capacity of the truck in kilograms"
+    )

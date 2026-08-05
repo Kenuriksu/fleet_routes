@@ -15,10 +15,14 @@
     "depends": [
         "base",
         "fleet",
-        "sale"
+        "sale",
+        'stock',              # usually required
+        'sale_management',    # often needed
+        'delivery',           # if delivery logic is involved
+        'sale_stock',         # VERY likely where field comes from
     ],
     "installable": True,
     "application": False,
-    "sequence": -100,
+    "sequence": 1,
     "auto_install" : False
 }

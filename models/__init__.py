@@ -1,1 +1,1 @@
-from . import routes, batch_delivery, sale_order, fleet_truck
+from . import routes, batch_delivery, sale_order, fleet_truck, product, pick_line

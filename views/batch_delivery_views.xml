@@ -32,22 +32,94 @@
             </header>
 
             <sheet>
+
+                <!-- TOP INFO -->
                 <group>
                     <field name="name"/>
                     <field name="route_id"/>
                     <field name="delivery_date"/>
-                    <field name="order_ids"/>
+                </group>
+                
+                <!-- OTHER INFO -->
+                <group>
+                    <group string="Truck Info">
+                        <field name="truck_id"/>
+                        <field name="driver_id"/>
+                        <field name="helper_ids" widget="many2many_tags"/>
+                    </group>
+                    <group string="Load Monitoring">
+                        <field name="total_weight"/>
+                        <field name="max_weight"/>
+                        <field name="load_percentage"
+                            widget="progressbar"
+                            options="{'max_value': 100}"
+                            decoration-danger="load_percentage > 100"/>
+                    </group>
                 </group>
 
-                <group string="Truck Info">
-                    <field name="truck_id"/>
-                    <field name="driver_id" readonly="1"/>
-                    <field name="helper_ids" widget="many2many_tags"/>
-                </group>
+                <!-- TABS -->
+                <notebook>
+
+                    <!-- 📦 TAB 1 -->
+                    <page string="Delivery Orders">
+                        <field name="order_ids"
+                            context="{
+                                'default_route_id': route_id,
+                                'default_delivery_date': delivery_date,
+                                'search_default_filter_delivery': 1,
+                                'search_default_filter_city': 1,
+                                'search_default_filter_date': 1
+                            }"
+                            widget="many2many"
+                        />
+                    </page>
+
+                    <!-- 📋 TAB 2 -->
+                    <page string="Pick List">
+                        <field name="pick_line_ids">
+                            <tree editable="false">
+                                <field name="product_id"/>
+                                <field name="quantity"/>
+                                <field name="uom_id"/>
+                            </tree>
+                        </field>
+                    </page>
+
+                </notebook>
+
+                
 
             </sheet>
 
         </form>
+    </field>
+</record>
+
+<record id="view_sale_order_search_inherit_batch" model="ir.ui.view">
+    <field name="name">sale.order.search.batch.delivery</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+    <field name="arch" type="xml">
+
+        <xpath expr="//search" position="inside">
+
+            <!-- Delivery Orders Only -->
+            <filter name="filter_delivery"
+                    string="Delivery Orders"
+                    domain="[('fulfillment_type', '=', 'delivery')]"/>
+
+            <filter name="filter_city"
+                domain="[('partner_shipping_id.city', '=ilike', context.get('route_name'))]"/>
+
+            <filter name="filter_date"
+            string="Delivery Date"
+            domain="[
+                ('commitment_date', '&gt;=', context.get('delivery_start')),
+                ('commitment_date', '&lt;', context.get('delivery_end'))
+            ]"/>
+
+        </xpath>
+
     </field>
 </record>
 
